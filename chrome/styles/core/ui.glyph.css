@@ -1,0 +1,24 @@
+.glyph {
+    -webkit-mask-image: url(../../img/glyphs.png);
+    -webkit-mask-size: 160px 24px;
+    background-color: #5a5a5a;
+    width: 32px;
+    height: 24px;
+    font-size: 0;
+}
+.dev-tools-theme-dark .glyph {
+    background-color: rgb(165, 165, 165);
+}
+.glyph--clear {
+    -webkit-mask-position: -63px 0;
+}
+.glyph--record {
+    -webkit-mask-position: 1px 0px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5) {
+    .glyph {
+        -webkit-mask-image: url(../../img/glyphs-x2.png);
+    }
+}
+

@@ -1,0 +1,129 @@
+/* UI.PropertyList  Control Styles
+=================================================== */
+
+/* Property styles
+--------------------------------------------------- */
+
+.property {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.property__name, .property__value {
+    font-family: Menlo, monospace;
+    font-size: 11px;
+}
+.property__name {
+    color: #c00;
+    padding: 1px 0;
+}
+.dev-tools-theme-dark .property__name {
+    color: rgb(155, 187, 220);
+}
+.property__name:after {
+    content: ": ";
+    color: #000;
+}
+
+/* properties aren't removed from the DOM, we just hide them to preserve state */
+ .property[hidden] + .property-list {
+    display: none;
+}
+
+/* [1] if a property was a complex type but is now simple we hide the opener and children */
+
+.property:not(.property--object) > .property__opener {
+    display: none; /* [1] */
+}
+
+.property:not(.property--object) + .property-list {
+    display: none; /* [1] */
+}
+
+/* Property types
+--------------------------------------------------- */
+
+.property--boolean {
+    color: #c4f;
+}
+.dev-tools-theme-dark .property--boolean {
+    color: rgb(182, 100, 242);
+}
+.property--object {
+    color: #666;
+}
+.dev-tools-theme-dark .property--object {
+    color: rgb(180, 180, 180);
+}
+.property--number {
+    color: #0c0;
+}
+.dev-tools-theme-dark .property--number {
+    color: rgb(93, 196, 235);
+}
+.property--string {
+    color: #00c;
+}
+.dev-tools-theme-dark .property--string {
+    color: rgb(242, 151, 102);
+}
+.property--string > .property__value:before,
+  .property--string > .property__value:after {
+    content: "\"";
+}
+.property--undefined, .property--null {
+    color: #999;
+}
+
+/* Property List styles
+--------------------------------------------------- */
+
+.property-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.property-list .property-list {
+    padding-left: 14px;
+}
+.property-list .property__opener {
+    margin-right: -14px;
+}
+.property-list .property__name {
+    padding-left: 14px;
+}
+
+/* Opener styles
+---------------------------------------------------
+
+[1] prevent clicks from starting a selection
+
+*/
+
+.property__opener {
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #888;
+    -webkit-mask-image: url(../../img/glyphs.png);
+    -webkit-mask-size: 160px 24px;
+    -webkit-mask-position: -140px -7px;
+    -webkit-user-select: none;  /* [1] */
+}
+.dev-tools-theme-dark .property__opener {
+    background-color: rgb(119, 119, 119)
+}
+.property--collapsed .property__opener {
+    -webkit-mask-position: -108px -7px;
+}
+.property--collapsed + .property-list {
+    display: none;
+}
+
+@media (min-device-pixel-ratio: 1.5) {
+    .property__opener {
+        -webkit-mask-image: url(../../img/glyphs-x2.png);
+    }
+}

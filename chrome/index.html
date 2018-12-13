@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA Debugger</title>
+    <link rel="stylesheet" href="styles/core/ui.glyph.css">
+    <link rel="stylesheet" href="styles/core/ui.group.css">
+    <link rel="stylesheet" href="styles/core/ui.itemlist.css">
+    <link rel="stylesheet" href="styles/core/ui.propertylist.css">
+    <link rel="stylesheet" href="styles/core/ui.splitview.css">
+    <link rel="stylesheet" href="styles/core/ui.toolbar.css">
+    <link rel="stylesheet" href="styles/core/ui.window.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="splitview">
+        <div id="requests" class="splitview__panel splitview__panel--full">
+            <ul class="rows item-list" data-ui-type="item-list"></ul>
+        </div>
+        <div id="requests-splitter" class="splitview__splitter"></div>
+        <div id="payload" class="splitview__panel splitview__panel--full">
+            <pre id="payload-body"></pre>
+        </div>
+    </div>
+    <button id="clean" style="
+        position: absolute;
+        bottom: 20px;
+        right: 30px;
+        height: 30px;
+        width: 80px;
+        border-radius: 6px;
+        font-size: 14px;"
+    >Clean</button>
+    <script src="js/core/ui.group.js"></script>
+    <script src="js/core/ui.itemlist.js"></script>
+    <script src="js/core/ui.propertylist.js"></script>
+    <script src="js/core/ui.splitview.js"></script>
+    <script src="js/core/ui.toolbar.js"></script>
+    <script src="js/core/ui.utils.js"></script>
+    <script src="js/core/ui.window.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
